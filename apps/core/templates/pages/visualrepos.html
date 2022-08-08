@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+    A Visual
+{% endblock title %}
+
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+  <h1 class="display-4">Repositories By Size</h1>
+  <embed type="image/svg+xml" src="{{ rendered_chart_svg_as_datauri|safe }}" />
+
+<hr class="my-4 ">
+  <h3>Want to create your own Dashboard?</h3>
+    <a class="btn btn-lg" href="{% url 'signup' %}" role="button">Sign Up</a>
+    <a class="btn btn-lg" href="{% url 'allrepos' %}" role="button">All Repos</a>
+
+{% endblock content %}
+
+

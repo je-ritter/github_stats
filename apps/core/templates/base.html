@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
         {% block title %}
-            My Site
+            Respositories Displayed
         {% endblock title %}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,12 +30,8 @@
 
 <body>
 
-<nav class="navbar navbar-expand-md">
+<nav class="navbar navbar-dark navbar-expand-md">
     <div class="container">
-        <a class="navbar-brand" href="/">
-            <!-- Add your logo here!  <img src="" /> -->
-            My Site
-        </a>
 
         <button
             class="navbar-toggler navbar-toggler-right"
@@ -54,10 +50,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Start</a>
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                     <li class="nav-item">
+                    <a class="nav-link" href="{% url 'allrepos' %}">Listed Repositories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                    <a class="nav-link" href="{% url 'visualrepos' %}">By Size</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'view_all_users' %}">Users</a>

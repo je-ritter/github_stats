@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+    All Repos
+{% endblock title %}
+
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+  <h1 class="display-4">JE-RITTER's Repositories</h1>
+  <table> 
+  	<thead> <tr>
+  	<th>Name</th> 
+  	<th>Language</th>
+  	<th>Stars</th>
+  	<th>🖱️</th>
+  	
+  	</tr> </thead>
+  	<tbody>
+  		{% for repo_dict in github_repos %}
+  			<tr>
+  				<td>{{ repo_dict.name }}</td>
+				<td>{{ repo_dict.language }}</td>	
+  				<td>{{ repo_dict.stargazers_count }} ⭐</td>
+  				<td> <a class="link_color" href="{{ repo_dict.html_url }}" target="_blank">View</a></td>
+  			</tr>
+  		{% endfor %}
+  	</tbody>
+  </table>
+  
+  </table>
+  
+<hr class="my-4 ">
+  <h3>Want to create your own Dashboard?</h3>
+    <a class="btn btn-lg" href="{% url 'signup' %}" role="button">Sign Up</a>
+    <a class="btn btn-lg" href="{% url 'allrepos' %}" role="button">All Repos</a>
+
+<p>{{ rendered_chart_svg|safe }}</p>
+
+{% endblock content %}
+
+
