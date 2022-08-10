@@ -4,4 +4,6 @@
 This code is intended to help you build a dashboard using your GitHub API. 
 
 ### Known Issues:
-* No way for a user to create their own dashboard
+* No way for a user to create their own dashboard\
+
+
