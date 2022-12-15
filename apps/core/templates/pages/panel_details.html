@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Wow, look at this!
+{% endblock title %}
+
+<h1>{{ panel.title }}</h1>
+<p>{{ panel.description }}</p>
+{{ rendered_chart_svg|safe }}
+{{ panel.get_api_and_render_chart|safe }}
+
+{% endfor %}
+

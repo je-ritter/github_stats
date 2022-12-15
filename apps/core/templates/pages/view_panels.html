@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Wow, look at all the panels!
+{% endblock title %}
+
+
+{% block content %}
+	<p>THIS IS TEST TEXT</p>
+{% for panel in dboard_panels %}
+	<div class="shadow border"> <!-- Example HTML / CSS -->
+		<p>{{ panel.title }}</p>
+		{# {{ panel.get_api_and_render_chart|safe }} #}
+	</div>
+	{% empty %}
+	<p>No panels Found!</p> 
+{% endfor %}
+{% endblock content%}
+

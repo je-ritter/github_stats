@@ -4,6 +4,7 @@ import requests
 import pygal
 
 from pygal.style import DarkenStyle
+from .models import DashboardPanel
 
 # Two example views. Change or delete as necessary.
 def home(request):
@@ -54,8 +55,44 @@ def about(request):
 
     return render(request, 'pages/about.html', context)
     
+def viewpanels(request):
+	panels = DashboardPanel.objects.all()
+	context = {
+		"dboard_panels": panels,
+	}
+	return render(request, "pages/view_panels.html", context)
+	
+def panel_details(request, panel_id):
+	panel = DashboardPanel.objects.get(id=panel_id)
+	
+	chart = pygal.Pie()
+		# TODO: Make aspects of the chart (such as pie v bar, styling, etc)
+		# custoomizable based on the data in the panel model
+		
+		# TODO: Get data from API, file, DB, or womehere else, possibly based on
+		# the panel model
+		
+	for repo_dict in repo_list:
+		value = 42 # TODO: Replace this...
+		label = repo_dict["name"]
+		chart.add(label,value)
 
+		context = {
+			"panel": panel,
+			"rendered_chart_svg": chart.render(), # TODO: change this to the other 
+			# format??
+		}
+		return render (request, "panel_details.html", context)
+		
+def view_user_dash(request, the_username):
+	user_object = User.objects.filter(username=the_username)
+	panels = DashboardPanel.objects.filter(user=user_object)
+	context = {
+		'panels': panels,
+	}
+	return render(request, "panel_details.html", context)
 
+	
 
 	
 			
